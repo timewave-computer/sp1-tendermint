@@ -3,7 +3,6 @@ use sp1_sdk::{
 };
 use tendermint_light_client_verifier::types::LightBlock;
 
-pub mod contract;
 mod types;
 pub mod util;
 

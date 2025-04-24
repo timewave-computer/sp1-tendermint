@@ -1,22 +1,21 @@
 #![no_main]
 sp1_zkvm::entrypoint!(main);
 
-use alloy_sol_types::{sol, SolValue};
 use core::time::Duration;
+use program_types::TendermintOutput;
 use tendermint_light_client_verifier::{
     options::Options,
     types::{LightBlock, TrustThreshold},
     ProdVerifier, Verdict, Verifier,
 };
-
-sol! {
+/*sol! {
     struct TendermintOutput {
         uint64 trustedHeight;
         uint64 targetHeight;
         bytes32 trustedHeaderHash;
         bytes32 targetHeaderHash;
     }
-}
+}*/
 
 fn main() {
     // Read in 2 encoded vectors of two light blocks from the zkVM's stdin.
@@ -68,11 +67,11 @@ fn main() {
     let header_hash_2: [u8; 32] = header_hash_2.as_bytes().to_vec().try_into().unwrap();
 
     let output = TendermintOutput {
-        trustedHeight: light_block_1.signed_header.header.height.value(),
-        targetHeight: light_block_2.signed_header.header.height.value(),
-        trustedHeaderHash: header_hash_1.into(),
-        targetHeaderHash: header_hash_2.into(),
+        trusted_height: light_block_1.signed_header.header.height.value(),
+        target_height: light_block_2.signed_header.header.height.value(),
+        trusted_header_hash: header_hash_1,
+        target_header_hash: header_hash_2,
     };
 
-    sp1_zkvm::io::commit_slice(&output.abi_encode());
+    sp1_zkvm::io::commit_slice(&serde_json::to_vec(&output).unwrap());
 }
