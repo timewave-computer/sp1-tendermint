@@ -12,7 +12,3 @@ tendermint-light-client-verifier = { version = "0.35.0", default-features = fals
 ] }
 serde_cbor = "0.11.2"
 program-types = { path = "../program-types" }
-
-[patch.crates-io]
-sha2-v0-10-8 = { git = "https://github.com/sp1-patches/RustCrypto-hashes", package = "sha2", tag = "patch-sha2-0.10.8-sp1-4.0.0" }
-curve25519-dalek-ng = { git = "https://github.com/sp1-patches/curve25519-dalek-ng", tag = "patch-4.1.1-sp1-4.0.0" }
