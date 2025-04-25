@@ -6,9 +6,11 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace.dependencies]
-sp1-sdk = { version = "4.0.0", features = ["native-gnark"] }
-sp1-helper = "4.0.0"
-sp1-zkvm = "4.0.0"
+sp1-sdk = { git = "https://github.com/timewave-computer/sp1", branch = "jonas/fix-4.1.7-syscall", features = [
+    "native-gnark",
+] }
+sp1-helper = { git = "https://github.com/timewave-computer/sp1", branch = "jonas/fix-4.1.7-syscall" }
+sp1-zkvm = { git = "https://github.com/timewave-computer/sp1", branch = "jonas/fix-4.1.7-syscall" }
 
 [profile.dev]
 opt-level = 3
