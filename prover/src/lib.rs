@@ -54,7 +54,7 @@ impl TendermintProver {
         let proof = self
             .prover_client
             .prove(&self.pkey, &stdin)
-            .plonk()
+            .groth16()
             .run()
             .expect("Failed to execute.");
 
