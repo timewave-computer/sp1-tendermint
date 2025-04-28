@@ -50,11 +50,11 @@ fn main() {
 
     match verdict {
         Verdict::Success => {
-            println!(
+            /*println!(
                 "Verified light client update from height {} to height {}!",
                 light_block_1.signed_header.header.height.value(),
                 light_block_2.signed_header.header.height.value()
-            );
+            );*/
         }
         v => panic!("Failed to verify light client update: {:?}", v),
     }

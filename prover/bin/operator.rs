@@ -25,5 +25,5 @@ async fn main() {
     let proof_out: TendermintOutput =
         serde_json::from_slice(&proof_data.public_values.to_vec()).unwrap();
 
-    println!("proof_out: {:?}", proof_out);
+    //println!("proof_out: {:?}", proof_out);
 }
