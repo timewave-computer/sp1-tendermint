@@ -1,5 +1,6 @@
 use sp1_sdk::{
-    EnvProver, ProverClient, SP1ProofWithPublicValues, SP1ProvingKey, SP1Stdin, SP1VerifyingKey,
+    include_elf, EnvProver, HashableKey, ProverClient, SP1ProofWithPublicValues, SP1ProvingKey,
+    SP1Stdin, SP1VerifyingKey,
 };
 use tendermint_light_client_verifier::types::LightBlock;
 
@@ -7,7 +8,7 @@ mod types;
 pub mod util;
 
 // The path to the ELF file for the Succinct zkVM program.
-pub const TENDERMINT_ELF: &[u8] = include_bytes!("../../program/elf/tendermint-light-client");
+pub const TENDERMINT_ELF: &[u8] = include_bytes!("../../elf/tendermint-elf");
 
 pub struct TendermintProver {
     pub prover_client: EnvProver,
