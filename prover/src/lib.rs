@@ -1,6 +1,5 @@
 use sp1_sdk::{
-    include_elf, EnvProver, HashableKey, ProverClient, SP1ProofWithPublicValues, SP1ProvingKey,
-    SP1Stdin, SP1VerifyingKey,
+    EnvProver, ProverClient, SP1ProofWithPublicValues, SP1ProvingKey, SP1Stdin, SP1VerifyingKey,
 };
 use tendermint_light_client_verifier::types::LightBlock;
 
